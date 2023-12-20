@@ -7,29 +7,29 @@ void main() {
   stdout.writeln('Welcome to Rock, Paper, Scissors.');
   stdout.writeln('Type \'exit\' to stop the game');
   int score = 0;
-  String _userChoice = userChoiceFunc();
+  String userChoice = userChoiceFunc();
 
   // while end when user input 'exit'
-  while (_userChoice != 'exit') {
-    String _pcChoice = getRandomPCChoice();
-    score += calculateResult(userChoice: _userChoice, pcChoice: _pcChoice);
-    _userChoice = userChoiceFunc();
+  while (userChoice != 'exit') {
+    String pcChoice = getRandomPCChoice();
+    score += calculateResult(userChoice: userChoice, pcChoice: pcChoice);
+    userChoice = userChoiceFunc();
   }
   stdout.writeln('\n\nYour score: $score');
 }
 
 String userChoiceFunc() {
-  String? _userChoice;
+  String? userChoice;
   // Loop until User choice 1 of 4 
   do {
     stdout.write('Please choose Rock(R), Paper(P) or Scissors(S): ');
-    _userChoice = stdin.readLineSync();
-  } while (_userChoice == null ||
-      (_userChoice != "R" &&
-          _userChoice != 'P' &&
-          _userChoice != "S" &&
-          _userChoice != 'exit'));
-  return _userChoice;
+    userChoice = stdin.readLineSync();
+  } while (userChoice == null ||
+      (userChoice != "R" &&
+          userChoice != 'P' &&
+          userChoice != "S" &&
+          userChoice != 'exit'));
+  return userChoice;
 }
 
 String getRandomPCChoice() {
@@ -43,14 +43,14 @@ int calculateResult({required String userChoice, required String pcChoice}) {
   //Change value of Map RPS before check who's win
   RockPaperScissorsPolicy.changeValue(userChoice);
 
-  int _userValue =
+  int userValue =
       RockPaperScissorsPolicy.rockPaperScissorsValue[userChoice] ?? 0;
-  int _pcValue = RockPaperScissorsPolicy.rockPaperScissorsValue[pcChoice] ?? 0;
+  int pcValue = RockPaperScissorsPolicy.rockPaperScissorsValue[pcChoice] ?? 0;
 
-  if (_userValue > _pcValue) {
+  if (userValue > pcValue) {
     print('You win');
     return 1;
-  } else if (_userValue < _pcValue) {
+  } else if (userValue < pcValue) {
     print('You lose');
     return -1;
   } else {
