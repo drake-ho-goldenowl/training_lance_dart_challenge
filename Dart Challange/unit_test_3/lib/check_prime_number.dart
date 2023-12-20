@@ -1,7 +1,7 @@
 import 'dart:io';
 
 bool checkPrimeNumberFunc({required int number}) {
-  if (number.isEven && number != 2) {
+  if ((number.isEven && number != 2) || number == 1) {
     stdout.writeln("$number isn't a Prime Number");
     return false;
   }

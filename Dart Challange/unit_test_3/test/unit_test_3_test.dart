@@ -13,4 +13,8 @@ void main() {
   test('Number 2', () {
     expect(checkPrimeNumberFunc(number: 2), true);
   });
+
+  test('Number 1', () {
+    expect(checkPrimeNumberFunc(number: 1), false);
+  });
 }
