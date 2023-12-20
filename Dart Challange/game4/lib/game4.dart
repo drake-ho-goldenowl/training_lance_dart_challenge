@@ -5,7 +5,7 @@ void startGame() {
   while (loopGame) {
     stdout.writeln('Welcome to Magical Hat Game.');
     stdout.writeln('Type \'exit\' to stop the game');
-    final resultText = 'Lance'.toUpperCase();
+    final resultText = 'Lance Lancelot'.toUpperCase();
     List<String> listResultText = resultText.split('');
     List<String> listHints = createHintText(listResultText);
 
@@ -14,7 +14,7 @@ void startGame() {
       hintText: listHints
     );
 
-    stdout.writeln(loopGame ? "Play again!" : "\n");
+    stdout.writeln(loopGame ? "Play again!\n" : "\n");
   }
 }
 
@@ -50,11 +50,12 @@ bool playGame({
   required List<String> resultText,
   required List<String> hintText,
 }) {
-  while (resultText != hintText) {
+  while (resultText.toString().compareTo(hintText.toString()) != 0) {
+    print('');
     renderHintText(hintText);
     String userInput = getUserInput();
     if (userInput.compareTo('exit') == 0) return false;
-    if (resultText.contains(userInput)){
+    if (resultText.contains(userInput.toUpperCase())){
       for (int i = 0; i<resultText.length ;i++) { 
         if (resultText[i].toUpperCase() == userInput.toUpperCase()){
           hintText[i] = userInput.toUpperCase();
@@ -62,5 +63,7 @@ bool playGame({
       }
     }
   }
+  stdout.write('Bingo: ');
+  renderHintText(hintText);
   return true;
 }
