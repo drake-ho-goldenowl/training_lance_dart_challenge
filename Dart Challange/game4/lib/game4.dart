@@ -9,12 +9,9 @@ void startGame() {
     List<String> listResultText = resultText.split('');
     List<String> listHints = createHintText(listResultText);
 
-    loopGame = playGame(
-      resultText: listResultText,
-      hintText: listHints
-    );
+    loopGame = playGame(resultText: listResultText, hintText: listHints);
 
-    stdout.writeln(loopGame ? "Play again!\n" : "\n");
+    stdout.writeln(loopGame ? "\nPlay again!\n" : "\n");
   }
 }
 
@@ -33,17 +30,16 @@ List<String> createHintText(List<String> resultText) {
 String getUserInput() {
   String? userInput;
   do {
-    stdout.write("Please guess a letter: ");
+    stdout.write("\nPlease guess a letter: ");
     userInput = stdin.readLineSync();
   } while (userInput!.length != 1 && userInput != 'exit');
   return userInput;
 }
 
-void renderHintText(List<String> hints){
-  for (String character in hints){
+void renderHintText(List<String> hints) {
+  for (String character in hints) {
     stdout.write(character);
   }
-  print('');
 }
 
 bool playGame({
@@ -51,13 +47,12 @@ bool playGame({
   required List<String> hintText,
 }) {
   while (resultText.toString().compareTo(hintText.toString()) != 0) {
-    print('');
     renderHintText(hintText);
     String userInput = getUserInput();
     if (userInput.compareTo('exit') == 0) return false;
-    if (resultText.contains(userInput.toUpperCase())){
-      for (int i = 0; i<resultText.length ;i++) { 
-        if (resultText[i].toUpperCase() == userInput.toUpperCase()){
+    if (resultText.contains(userInput.toUpperCase())) {
+      for (int i = 0; i < resultText.length; i++) {
+        if (resultText[i].toUpperCase() == userInput.toUpperCase()) {
           hintText[i] = userInput.toUpperCase();
         }
       }
