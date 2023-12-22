@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wishlist_app/data/model.dart';
+import 'package:wishlist_app/src/network/model/model.dart';
 import 'package:wishlist_app/src/text_manager.dart';
 
 class RawData {
@@ -7,30 +7,37 @@ class RawData {
     Product(
         title: StringApp.title1,
         content: StringApp.content1,
+        isFavorited: false,
         icon: Icons.music_note),
     Product(
         title: StringApp.title2,
         content: StringApp.content2,
+        isFavorited: false,
         icon: Icons.music_note),
     Product(
         title: StringApp.title3,
         content: StringApp.content3,
+        isFavorited: false,
         icon: Icons.music_note),
     Product(
         title: StringApp.title4,
         content: StringApp.content4,
+        isFavorited: false,
         icon: Icons.music_note),
     Product(
         title: StringApp.title5,
         content: StringApp.content5,
+        isFavorited: false,
         icon: Icons.music_note),
     Product(
         title: StringApp.title6,
         content: StringApp.content6,
+        isFavorited: false,
         icon: Icons.music_note),
     Product(
         title: StringApp.title7,
         content: StringApp.content7,
+        isFavorited: false,
         icon: Icons.music_note),
   ];
 }

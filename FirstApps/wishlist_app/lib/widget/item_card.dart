@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:wishlist_app/src/value_manager.dart';
+import 'package:wishlist_app/src/config/constants/value_manager.dart';
 
 typedef VoidCallbackFunc = void Function();
 
 // ignore: must_be_immutable
 class ItemCard extends StatefulWidget {
-  ItemCard(
+  const ItemCard(
       {super.key,
       required this.title,
       this.titleStyle,
@@ -15,7 +15,8 @@ class ItemCard extends StatefulWidget {
       this.favoriteCallback,
       this.deleteCallback,
       this.isFavorited = false,
-      this.isFromFavoritePage = false});
+      this.isFromFavoritePage = false,
+      this.onChangedFavorite});
   final String title;
   final TextStyle? titleStyle;
   final String content;
@@ -23,8 +24,9 @@ class ItemCard extends StatefulWidget {
   final Widget leadingIcon;
   final VoidCallbackFunc? favoriteCallback;
   final VoidCallbackFunc? deleteCallback;
-  bool isFavorited;
+  final bool isFavorited;
   final bool isFromFavoritePage;
+  final void Function(bool)? onChangedFavorite;
 
   @override
   State<ItemCard> createState() => _ItemCardState();
@@ -102,7 +104,9 @@ class _ItemCardState extends State<ItemCard> {
                   onPressed: () {
                     setState(() {
                       _isFavorite = !_isFavorite;
-                      widget.isFavorited = _isFavorite;
+                      if (widget.onChangedFavorite != null) {
+                        widget.onChangedFavorite!(_isFavorite);
+                      }
                     });
                   },
                   icon: Icon(

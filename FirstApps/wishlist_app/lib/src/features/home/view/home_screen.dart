@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:wishlist_app/data/app_constants.dart';
-import 'package:wishlist_app/data/model.dart';
+import 'package:wishlist_app/src/network/data/app_constants.dart';
+import 'package:wishlist_app/src/config/constants/value_manager.dart';
+import 'package:wishlist_app/src/network/model/model.dart';
 import 'package:wishlist_app/src/text_manager.dart';
-import 'package:wishlist_app/src/value_manager.dart';
+import 'package:wishlist_app/widget/app_bar.dart';
 import 'package:wishlist_app/widget/item_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -24,25 +25,23 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(context),
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         padding: const EdgeInsets.symmetric(horizontal: PaddingApp.p8),
-        child: _buildListMusic(),
+        child: Column(
+          children: [
+            _buildAppBar(context),
+            Expanded(child: _buildListMusic()),
+          ],
+        ),
       ),
     );
   }
 
-  PreferredSizeWidget _buildAppBar(BuildContext context) {
-    return AppBar(
-      title: const Text(StringApp.homePage),
-      centerTitle: true,
-      titleTextStyle: const TextStyle(
-          color: Colors.black,
-          fontSize: SizeApp.s20,
-          fontWeight: FontWeight.bold,
-          fontStyle: FontStyle.italic),
+  Widget _buildAppBar(BuildContext context) {
+    return XAppBar(
+      title: StringApp.homePage,
       leading: const Icon(
         Icons.home,
         size: SizeApp.s20,
@@ -71,10 +70,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.black54),
             content: rawData[index].content,
             isFavorited: rawData[index].isFavorited,
+            onChangedFavorite: (isFavor) =>
+                _onChangeFavoriteCard(isFavorite: isFavor, index: index),
             leadingIcon: const Icon(
               Icons.music_note,
               color: Colors.greenAccent,
               size: SizeApp.s10,
             )));
+  }
+
+  void _onChangeFavoriteCard({required bool isFavorite, required int index}) {
+    rawData[index].copyWith(isFavorited: isFavorite);
   }
 }

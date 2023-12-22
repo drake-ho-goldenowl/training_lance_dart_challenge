@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wishlist_app/data/app_constants.dart';
+import 'package:wishlist_app/src/network/data/app_constants.dart';
+import 'package:wishlist_app/src/config/constants/value_manager.dart';
 import 'package:wishlist_app/src/text_manager.dart';
-import 'package:wishlist_app/src/value_manager.dart';
+import 'package:wishlist_app/widget/app_bar.dart';
 import 'package:wishlist_app/widget/item_card.dart';
 
 class FavoriteScreen extends StatelessWidget {
@@ -10,25 +11,23 @@ class FavoriteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(context),
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         padding: const EdgeInsets.symmetric(horizontal: PaddingApp.p8),
-        child: _buildListFavoriteMusic(),
+        child: Column(
+          children: [
+            _buildAppBar(context),
+            Expanded(child: _buildListFavoriteMusic()),
+          ],
+        ),
       ),
     );
   }
 
-  PreferredSizeWidget _buildAppBar(BuildContext context) {
-    return AppBar(
-      title: const Text(StringApp.favoritePage),
-      centerTitle: true,
-      titleTextStyle: const TextStyle(
-          color: Colors.black,
-          fontSize: SizeApp.s20,
-          fontWeight: FontWeight.bold,
-          fontStyle: FontStyle.italic),
+  Widget _buildAppBar(BuildContext context) {
+    return XAppBar(
+      title: StringApp.favoritePage,
       leading: IconButton(
         onPressed: () => _navigationHomePage(context),
         icon: const Icon(
