@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wishlist_app/src/value_manager.dart';
+import 'package:wishlist_app/constants/value_constants.dart';
 
 typedef VoidCallbackFunc = void Function();
 

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wishlist_app/bloc/home_bloc.dart';
-import 'package:wishlist_app/bloc/home_state.dart';
-import 'package:wishlist_app/screen/favorite_screen.dart';
-import 'package:wishlist_app/src/text_manager.dart';
-import 'package:wishlist_app/src/value_manager.dart';
-import 'package:wishlist_app/widget/item_card.dart';
+import 'package:wishlist_app/modules/home_page/bloc/home_bloc.dart';
+import 'package:wishlist_app/modules/home_page/bloc/home_state.dart';
+import 'package:wishlist_app/modules/home_page/screens/favorite_screen.dart';
+import 'package:wishlist_app/constants/text_constants.dart';
+import 'package:wishlist_app/constants/value_constants.dart';
+import 'package:wishlist_app/widgets/item_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wishlist_app/bloc/home_bloc.dart';
-import 'package:wishlist_app/data/const_data.dart';
-import 'package:wishlist_app/screen/home_screen.dart';
+import 'package:wishlist_app/modules/home_page/bloc/home_bloc.dart';
+import 'package:wishlist_app/constants/app_constants.dart';
+import 'package:wishlist_app/modules/home_page/screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: BlocProvider(
-        create: (context) => HomeBloc(RawData.allProducts),
+        create: (context) => HomeBloc(AppConstants.allProducts),
         child: const HomeScreen(),
       ),
     );

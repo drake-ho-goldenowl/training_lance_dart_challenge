@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:wishlist_app/bloc/home_state.dart';
-import 'package:wishlist_app/data/model.dart';
+import 'package:wishlist_app/modules/home_page/bloc/home_state.dart';
+import 'package:wishlist_app/modules/home_page/models/product_model.dart';
 
 class HomeBloc extends Cubit<HomeState> {
   HomeBloc(List<Product> listProduct)

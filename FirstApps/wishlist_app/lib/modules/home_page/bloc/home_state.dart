@@ -1,4 +1,4 @@
-import 'package:wishlist_app/data/model.dart';
+import 'package:wishlist_app/modules/home_page/models/product_model.dart';
 
 enum HomeStatus { init, reload, finish }
 
