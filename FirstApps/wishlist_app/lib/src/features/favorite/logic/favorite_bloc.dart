@@ -7,7 +7,22 @@ class FavoriteBloc extends Cubit<FavoriteState> {
   FavoriteBloc(List<Product> listProduct)
       : super(FavoriteState(listFavorited: listProduct));
 
+  void removeFavoritedProduct({required int index}) {
+    final listFavorProduct = state.listFavorited;
+    listFavorProduct[index] =
+        listFavorProduct[index].copyWith(isFavorited: false);
+    emit(state.copyWith(listFavorited: listFavorProduct));
+  }
+
+  void clearFavoritedProducts() {
+    final listFavorProduct = state.listFavorited;
+    for (int i = 0; i < listFavorProduct.length; i++) {
+      listFavorProduct[i] = listFavorProduct[i].copyWith(isFavorited: false);
+    }
+    emit(state.copyWith(listFavorited: listFavorProduct));
+  }
+
   void navigationHomePage() {
-    AppCoordinator.pop();
+    AppCoordinator.pop<List<Product>>(state.listFavorited);
   }
 }

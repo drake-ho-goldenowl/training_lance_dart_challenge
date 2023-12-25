@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:flutter/material.dart';
 
 part 'model.g.dart';
 
@@ -22,7 +21,7 @@ class Product extends Equatable {
   List<Object?> get props => [isFavorited];
 
   Product copyWith(
-      {String? title, String? content, bool? isFavorited, IconData? icon}) {
+      {String? title, String? content, bool? isFavorited}) {
     return Product(
       title: title ?? this.title,
       content: content ?? this.content,
