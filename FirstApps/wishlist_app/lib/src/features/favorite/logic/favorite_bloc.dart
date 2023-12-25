@@ -8,6 +8,6 @@ class FavoriteBloc extends Cubit<FavoriteState> {
       : super(FavoriteState(listFavorited: listProduct));
 
   void navigationHomePage() {
-    AppCoordinator.pop<List<Product>>(state.listFavorited);
+    AppCoordinator.pop();
   }
 }
