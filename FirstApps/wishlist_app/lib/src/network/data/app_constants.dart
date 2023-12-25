@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wishlist_app/src/config/constants/text_manager.dart';
 import 'package:wishlist_app/src/network/model/model.dart';
-import 'package:wishlist_app/src/text_manager.dart';
 
 class RawData {
   static List<Product> allProducts = [

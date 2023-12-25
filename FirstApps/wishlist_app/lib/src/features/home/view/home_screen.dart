@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:wishlist_app/src/config/constants/text_manager.dart';
 import 'package:wishlist_app/src/network/data/app_constants.dart';
 import 'package:wishlist_app/src/config/constants/value_manager.dart';
 import 'package:wishlist_app/src/network/model/model.dart';
-import 'package:wishlist_app/src/text_manager.dart';
 import 'package:wishlist_app/widget/app_bar.dart';
 import 'package:wishlist_app/widget/item_card.dart';
 
