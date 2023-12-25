@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:wishlist_app/src/config/constants/text_manager.dart';
 import 'package:wishlist_app/src/network/data/app_constants.dart';
 import 'package:wishlist_app/src/config/constants/value_manager.dart';
-import 'package:wishlist_app/src/text_manager.dart';
+import 'package:wishlist_app/src/network/model/model.dart';
+import 'package:wishlist_app/src/router/coordinator.dart';
 import 'package:wishlist_app/widget/app_bar.dart';
 import 'package:wishlist_app/widget/item_card.dart';
 
-class FavoriteScreen extends StatelessWidget {
-  const FavoriteScreen({super.key});
+class FavoriteScreen extends StatefulWidget {
+  const FavoriteScreen({required this.listFavorited, super.key});
+  final List<Product> listFavorited;
 
+  @override
+  State<FavoriteScreen> createState() => _FavoriteScreenState();
+}
+
+class _FavoriteScreenState extends State<FavoriteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +37,7 @@ class FavoriteScreen extends StatelessWidget {
     return XAppBar(
       title: StringApp.favoritePage,
       leading: IconButton(
-        onPressed: () => _navigationHomePage(context),
+        onPressed: () => _navigationHomePage(context, widget.listFavorited),
         icon: const Icon(
           Icons.arrow_back,
           size: SizeApp.s20,
@@ -41,7 +49,9 @@ class FavoriteScreen extends StatelessWidget {
     );
   }
 
-  void _navigationHomePage(BuildContext context) {}
+  void _navigationHomePage(BuildContext context, List<Product> listFavorited) {
+    AppCoordinator.pop();
+  }
 
   Widget _renderClearAllButton(BuildContext context) {
     return IconButton(
@@ -51,8 +61,8 @@ class FavoriteScreen extends StatelessWidget {
   Widget _buildListFavoriteMusic() {
     return ListView.builder(
         padding: const EdgeInsets.only(bottom: PaddingApp.p10),
-        itemCount: RawData.allProducts.length,
-        itemBuilder: (context, index) => RawData.allProducts[index].isFavorited
+        itemCount: widget.listFavorited.length,
+        itemBuilder: (context, index) => widget.listFavorited[index].isFavorited
             ? _renderMusicCard(context, index: index)
             : const SizedBox.shrink());
   }

@@ -42,6 +42,12 @@ class _ItemCardState extends State<ItemCard> {
   }
 
   @override
+  void didUpdateWidget(covariant ItemCard oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _isFavorite = widget.isFavorited;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(
@@ -104,9 +110,7 @@ class _ItemCardState extends State<ItemCard> {
                   onPressed: () {
                     setState(() {
                       _isFavorite = !_isFavorite;
-                      if (widget.onChangedFavorite != null) {
-                        widget.onChangedFavorite!(_isFavorite);
-                      }
+                      widget.onChangedFavorite?.call(_isFavorite);
                     });
                   },
                   icon: Icon(

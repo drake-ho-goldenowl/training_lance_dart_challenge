@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:wishlist_app/src/config/constants/text_manager.dart';
 import 'package:wishlist_app/src/network/data/app_constants.dart';
 import 'package:wishlist_app/src/config/constants/value_manager.dart';
 import 'package:wishlist_app/src/network/model/model.dart';
-import 'package:wishlist_app/src/text_manager.dart';
+import 'package:wishlist_app/src/router/coordinator.dart';
 import 'package:wishlist_app/widget/app_bar.dart';
 import 'package:wishlist_app/widget/item_card.dart';
 
@@ -14,12 +15,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late List<Product> rawData;
+  late List<Product> listProducts;
 
   @override
   void initState() {
     super.initState();
-    rawData = RawData.allProducts;
+    listProducts = RawData.allProducts;
   }
 
   @override
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             _buildAppBar(context),
-            Expanded(child: _buildListMusic()),
+            Expanded(child: _buildListMusic(listProducts)),
           ],
         ),
       ),
@@ -54,22 +55,26 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  void navigateFavoritePage(BuildContext context) {}
+  void navigateFavoritePage(BuildContext context) async {
+    listProducts = await AppCoordinator.showFavoriteScreen(listFavorited: listProducts) ??
+        listProducts;
+    setState(() {});
+  }
 
-  Widget _buildListMusic() {
+  Widget _buildListMusic(List<Product> products) {
     return ListView.builder(
         padding: const EdgeInsets.only(bottom: PaddingApp.p10),
-        itemCount: rawData.length,
+        itemCount: products.length,
         itemBuilder: (context, index) => ItemCard(
-            title: rawData[index].title,
+            title: products[index].title,
             titleStyle: const TextStyle(
                 fontSize: SizeApp.s20, fontWeight: FontWeight.w700),
             contentStyle: const TextStyle(
                 fontSize: SizeApp.s15,
                 fontWeight: FontWeight.w400,
                 color: Colors.black54),
-            content: rawData[index].content,
-            isFavorited: rawData[index].isFavorited,
+            content: products[index].content,
+            isFavorited: products[index].isFavorited,
             onChangedFavorite: (isFavor) =>
                 _onChangeFavoriteCard(isFavorite: isFavor, index: index),
             leadingIcon: const Icon(
@@ -80,6 +85,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _onChangeFavoriteCard({required bool isFavorite, required int index}) {
-    rawData[index].copyWith(isFavorited: isFavorite);
+    listProducts[index] = listProducts[index].copyWith(isFavorited: isFavorite);
   }
 }
