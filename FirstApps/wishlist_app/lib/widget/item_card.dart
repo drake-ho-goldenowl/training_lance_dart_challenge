@@ -3,8 +3,7 @@ import 'package:wishlist_app/src/config/constants/value_manager.dart';
 
 typedef VoidCallbackFunc = void Function();
 
-// ignore: must_be_immutable
-class ItemCard extends StatefulWidget {
+class ItemCard extends StatelessWidget {
   const ItemCard(
       {super.key,
       required this.title,
@@ -27,25 +26,6 @@ class ItemCard extends StatefulWidget {
   final bool isFavorited;
   final bool isFromFavoritePage;
   final void Function(bool)? onChangedFavorite;
-
-  @override
-  State<ItemCard> createState() => _ItemCardState();
-}
-
-class _ItemCardState extends State<ItemCard> {
-  bool _isFavorite = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _isFavorite = widget.isFavorited;
-  }
-
-  @override
-  void didUpdateWidget(covariant ItemCard oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    _isFavorite = widget.isFavorited;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,18 +52,18 @@ class _ItemCardState extends State<ItemCard> {
   Widget _renderHeaderCard() {
     return Row(
       children: [
-        widget.leadingIcon,
+        leadingIcon,
         const SizedBox(
           width: PaddingApp.p8,
         ),
         Expanded(
             child: Text(
-          widget.title,
-          style: widget.titleStyle,
+          title,
+          style: titleStyle,
         )),
-        widget.isFromFavoritePage
+        isFromFavoritePage
             ? IconButton(
-                onPressed: widget.deleteCallback,
+                onPressed: deleteCallback,
                 icon: const Icon(
                   Icons.delete,
                   color: Colors.redAccent,
@@ -100,21 +80,18 @@ class _ItemCardState extends State<ItemCard> {
       children: [
         Expanded(
             child: Text(
-          widget.content,
-          style: widget.contentStyle,
+          content,
+          style: contentStyle,
         )),
-        widget.isFromFavoritePage
+        isFromFavoritePage
             ? const SizedBox.shrink()
             : Center(
                 child: IconButton(
                   onPressed: () {
-                    setState(() {
-                      _isFavorite = !_isFavorite;
-                      widget.onChangedFavorite?.call(_isFavorite);
-                    });
+                    onChangedFavorite?.call(!isFavorited);
                   },
                   icon: Icon(
-                    _isFavorite ? Icons.favorite : Icons.favorite_border,
+                    isFavorited ? Icons.favorite : Icons.favorite_border,
                     color: Colors.red,
                     size: SizeApp.s20,
                   ),
