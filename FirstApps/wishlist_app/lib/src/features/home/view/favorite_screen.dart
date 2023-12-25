@@ -50,7 +50,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   }
 
   void _navigationHomePage(BuildContext context, List<Product> listFavorited) {
-    AppCoordinator.pop<List<Product>>(listFavorited);
+    AppCoordinator.pop();
   }
 
   Widget _renderClearAllButton(BuildContext context) {
@@ -78,17 +78,10 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
             color: Colors.black54),
         content: RawData.allProducts[index].content,
         isFromFavoritePage: true,
-        deleteCallback: () => unfavoriteMusic(index: index),
         leadingIcon: const Icon(
           Icons.music_note,
           color: Colors.greenAccent,
           size: SizeApp.s10,
         ));
-  }
-
-  void unfavoriteMusic({required int index}) {
-    widget.listFavorited[index] =
-        widget.listFavorited[index].copyWith(isFavorited: false);
-    setState(() {});
   }
 }
