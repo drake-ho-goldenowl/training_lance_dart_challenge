@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wishlist_app/src/config/constants/text_manager.dart';
+import 'package:wishlist_app/src/features/favorite/logic/favorite_bloc.dart';
+import 'package:wishlist_app/src/features/favorite/logic/favorite_state.dart';
 import 'package:wishlist_app/src/network/data/app_constants.dart';
 import 'package:wishlist_app/src/config/constants/value_manager.dart';
-import 'package:wishlist_app/src/network/model/model.dart';
-import 'package:wishlist_app/src/router/coordinator.dart';
 import 'package:wishlist_app/widget/app_bar.dart';
 import 'package:wishlist_app/widget/item_card.dart';
 
-class FavoriteScreen extends StatefulWidget {
-  const FavoriteScreen({required this.listFavorited, super.key});
-  final List<Product> listFavorited;
+class FavoriteScreen extends StatelessWidget {
+  const FavoriteScreen({super.key});
 
-  @override
-  State<FavoriteScreen> createState() => _FavoriteScreenState();
-}
-
-class _FavoriteScreenState extends State<FavoriteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +32,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
     return XAppBar(
       title: StringApp.favoritePage,
       leading: IconButton(
-        onPressed: () => _navigationHomePage(context, widget.listFavorited),
+        onPressed: () => context.read<FavoriteBloc>().navigationHomePage(),
         icon: const Icon(
           Icons.arrow_back,
           size: SizeApp.s20,
@@ -49,22 +44,23 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
     );
   }
 
-  void _navigationHomePage(BuildContext context, List<Product> listFavorited) {
-    AppCoordinator.pop<List<Product>>(listFavorited);
-  }
-
   Widget _renderClearAllButton(BuildContext context) {
     return IconButton(
         onPressed: () {}, icon: const Icon(Icons.cleaning_services_outlined));
   }
 
   Widget _buildListFavoriteMusic() {
-    return ListView.builder(
-        padding: const EdgeInsets.only(bottom: PaddingApp.p10),
-        itemCount: widget.listFavorited.length,
-        itemBuilder: (context, index) => widget.listFavorited[index].isFavorited
-            ? _renderMusicCard(context, index: index)
-            : const SizedBox.shrink());
+    return BlocBuilder<FavoriteBloc, FavoriteState>(
+      builder: (context, state) {
+        return ListView.builder(
+            padding: const EdgeInsets.only(bottom: PaddingApp.p10),
+            itemCount: state.listFavorited.length,
+            itemBuilder: (context, index) =>
+                state.listFavorited[index].isFavorited
+                    ? _renderMusicCard(context, index: index)
+                    : const SizedBox.shrink());
+      },
+    );
   }
 
   Widget _renderMusicCard(BuildContext context, {required int index}) {
@@ -78,17 +74,10 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
             color: Colors.black54),
         content: RawData.allProducts[index].content,
         isFromFavoritePage: true,
-        deleteCallback: () => unfavoriteMusic(index: index),
         leadingIcon: const Icon(
           Icons.music_note,
           color: Colors.greenAccent,
           size: SizeApp.s10,
         ));
-  }
-
-  void unfavoriteMusic({required int index}) {
-    widget.listFavorited[index] =
-        widget.listFavorited[index].copyWith(isFavorited: false);
-    setState(() {});
   }
 }
