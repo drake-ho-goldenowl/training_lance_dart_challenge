@@ -15,8 +15,8 @@ class HomeBloc extends Cubit<HomeState> {
   }
 
   void navigateFavoritePage() async {
-    final rawData = await AppCoordinator.showFavoriteScreen(
+    final listProducts = await AppCoordinator.showFavoriteScreen(
         listFavorited: state.allProduct);
-    emit(state.copyWith(allProduct: rawData));
+    emit(state.copyWith(allProduct: listProducts));
   }
 }
