@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:wishlist_app/src/features/home/view/home_screen.dart';
+import 'package:get_it/get_it.dart';
+import 'package:wishlist_app/src/locator.dart';
+import 'package:wishlist_app/src/router/router.dart';
 
-void main() {
+void main() async {
+  await initializeApp();
   runApp(const MyApp());
 }
 
@@ -10,14 +13,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final appRouter = GetIt.I<AppRouter>();
+    return MaterialApp.router(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      routerConfig: appRouter.router,
     );
   }
 }

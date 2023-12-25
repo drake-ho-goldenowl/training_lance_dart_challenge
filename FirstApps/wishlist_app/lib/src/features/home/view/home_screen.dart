@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:wishlist_app/src/config/constants/text_manager.dart';
 import 'package:wishlist_app/src/network/data/app_constants.dart';
 import 'package:wishlist_app/src/config/constants/value_manager.dart';
 import 'package:wishlist_app/src/network/model/model.dart';
-import 'package:wishlist_app/src/text_manager.dart';
+import 'package:wishlist_app/src/router/coordinator.dart';
 import 'package:wishlist_app/widget/app_bar.dart';
 import 'package:wishlist_app/widget/item_card.dart';
 
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             _buildAppBar(context),
-            Expanded(child: _buildListMusic()),
+            Expanded(child: _buildListMusic(rawData)),
           ],
         ),
       ),
@@ -54,22 +55,26 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  void navigateFavoritePage(BuildContext context) {}
+  void navigateFavoritePage(BuildContext context) async {
+    rawData = await AppCoordinator.showFavoriteScreen(listFavorited: rawData) ??
+        rawData;
+    setState(() {});
+  }
 
-  Widget _buildListMusic() {
+  Widget _buildListMusic(List<Product> raw) {
     return ListView.builder(
         padding: const EdgeInsets.only(bottom: PaddingApp.p10),
-        itemCount: rawData.length,
+        itemCount: raw.length,
         itemBuilder: (context, index) => ItemCard(
-            title: rawData[index].title,
+            title: raw[index].title,
             titleStyle: const TextStyle(
                 fontSize: SizeApp.s20, fontWeight: FontWeight.w700),
             contentStyle: const TextStyle(
                 fontSize: SizeApp.s15,
                 fontWeight: FontWeight.w400,
                 color: Colors.black54),
-            content: rawData[index].content,
-            isFavorited: rawData[index].isFavorited,
+            content: raw[index].content,
+            isFavorited: raw[index].isFavorited,
             onChangedFavorite: (isFavor) =>
                 _onChangeFavoriteCard(isFavorite: isFavor, index: index),
             leadingIcon: const Icon(
@@ -80,6 +85,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _onChangeFavoriteCard({required bool isFavorite, required int index}) {
-    rawData[index].copyWith(isFavorited: isFavorite);
+    rawData[index] = rawData[index].copyWith(isFavorited: isFavorite);
   }
 }
