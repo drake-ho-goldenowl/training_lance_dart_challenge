@@ -4,6 +4,7 @@ import 'package:gallery_app/src/config/constant/value_manager.dart';
 class XListTile extends StatelessWidget {
   const XListTile(
       {super.key,
+      this.isEnable = false,
       required this.leadingIcon,
       required this.title,
       this.titleStyle = const TextStyle(
@@ -14,7 +15,8 @@ class XListTile extends StatelessWidget {
       this.subTitleStyle =
           const TextStyle(fontSize: AppFontSize.f16, color: Colors.grey),
       this.isShowFooterLine = true,
-      this.iconColor = Colors.grey});
+      this.iconColor = Colors.grey,
+      this.onTapped});
 
   final Widget leadingIcon;
   final Widget title;
@@ -23,6 +25,8 @@ class XListTile extends StatelessWidget {
   final TextStyle subTitleStyle;
   final bool isShowFooterLine;
   final Color iconColor;
+  final bool isEnable;
+  final void Function()? onTapped;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +39,8 @@ class XListTile extends StatelessWidget {
       titleTextStyle: titleStyle,
       subtitleTextStyle: subTitleStyle,
       minVerticalPadding: AppPadding.p0,
+      onTap: () => onTapped?.call(),
+      enabled: isEnable,
     );
   }
 
@@ -45,7 +51,12 @@ class XListTile extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [subTitle, const Divider()],
+        children: [
+          subTitle,
+          const Divider(
+            height: 1,
+          )
+        ],
       ),
     );
   }

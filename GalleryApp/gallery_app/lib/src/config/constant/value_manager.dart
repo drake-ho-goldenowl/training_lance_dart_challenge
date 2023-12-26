@@ -36,4 +36,6 @@ class AppFontSize {
   static const f12 = 12.0;
   static const f16 = 16.0;
   static const f20 = 20.0;
+  static const f24 = 24.0;
+  static const f30 = 30.0;
 }

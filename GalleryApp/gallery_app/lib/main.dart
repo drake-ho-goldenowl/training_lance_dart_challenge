@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
       title: 'Gallery Flutter App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       routerConfig: appRouter.router,

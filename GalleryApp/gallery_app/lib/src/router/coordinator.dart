@@ -28,4 +28,7 @@ class AppCoordinator {
 
   static void showDashboardScreen() =>
       context.goNamed(AppRouteNames.dashboard.name);
+
+  static void showRichTextView() =>
+      context.pushNamed(AppRouteNames.richText.name);
 }
