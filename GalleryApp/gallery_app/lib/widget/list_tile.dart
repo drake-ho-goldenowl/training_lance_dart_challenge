@@ -31,18 +31,22 @@ class XListTile extends StatelessWidget {
       leading: leadingIcon,
       title: title,
       iconColor: iconColor,
-      subtitle: ConstrainedBox(
-        constraints: const BoxConstraints(minHeight: AppSize.s42),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [subTitle, const Divider()],
-        ),
-      ),
+      subtitle: _renderSubTitle(),
       titleTextStyle: titleStyle,
       subtitleTextStyle: subTitleStyle,
       minVerticalPadding: AppPadding.p0,
+    );
+  }
+
+  Widget _renderSubTitle() {
+    return ConstrainedBox(
+      constraints: const BoxConstraints(minHeight: AppSize.s42),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [subTitle, const Divider()],
+      ),
     );
   }
 }

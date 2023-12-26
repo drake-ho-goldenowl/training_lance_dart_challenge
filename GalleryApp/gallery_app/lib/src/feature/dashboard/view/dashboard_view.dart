@@ -45,27 +45,25 @@ class DashboardScreen extends StatelessWidget {
             padding: EdgeInsets.zero,
             itemCount: widgets.length,
             itemBuilder: (context, index) => XListTile(
-                leadingIcon: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Icon(widgets[index].icon),
-                  ],
-                ),
-                title: Padding(
-                  padding: const EdgeInsets.only(
-                      left: AppPadding.p8,
-                      top: AppPadding.p0,
-                      right: AppPadding.p16),
-                  child: Text(widgets[index].title),
-                ),
-                subTitle: Padding(
-                  padding: const EdgeInsets.only(
-                      left: AppPadding.p8,
-                      top: AppPadding.p0,
-                      right: AppPadding.p16),
-                  child: Text(widgets[index].subTitle),
-                )));
+                leadingIcon: _renderLeadingIconWidget(widgets[index].icon),
+                title: _renderPaddingWidget(widgets[index].title),
+                subTitle: _renderPaddingWidget(widgets[index].subTitle)));
       },
+    );
+  }
+
+  Widget _renderLeadingIconWidget(IconData icon) {
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      children: [Icon(icon)],
+    );
+  }
+
+  Widget _renderPaddingWidget(String title) {
+    return Padding(
+      padding: const EdgeInsets.only(
+          left: AppPadding.p8, top: AppPadding.p0, right: AppPadding.p16),
+      child: Text(title),
     );
   }
 }
