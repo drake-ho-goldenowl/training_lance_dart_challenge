@@ -1,12 +1,12 @@
-## Ticket
-- [Ticket]()
+## Todo
+- Feature/summary resume
 
 ## Task
-- [ ] List you do
-- [ ] ...
+[Task][URL]
 
-## Screenshot
-<img src="" width=30% height=30%>
-
+##  Screenshot
+Link nếu có / N/A
 
 ## Video
+Link nếu có / N/A
+
