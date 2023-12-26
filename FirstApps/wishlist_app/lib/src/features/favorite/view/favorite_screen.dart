@@ -46,7 +46,8 @@ class FavoriteScreen extends StatelessWidget {
 
   Widget _renderClearAllButton(BuildContext context) {
     return IconButton(
-        onPressed: () {}, icon: const Icon(Icons.cleaning_services_outlined));
+        onPressed: () => context.read<FavoriteBloc>().clearFavoritedProducts(),
+        icon: const Icon(Icons.cleaning_services_outlined));
   }
 
   Widget _buildListFavoriteMusic() {
@@ -73,6 +74,8 @@ class FavoriteScreen extends StatelessWidget {
             fontWeight: FontWeight.w400,
             color: Colors.black54),
         content: RawData.allProducts[index].content,
+        deleteCallback: () =>
+            context.read<FavoriteBloc>().removeFavoritedProduct(index: index),
         isFromFavoritePage: true,
         leadingIcon: const Icon(
           Icons.music_note,
