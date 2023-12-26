@@ -1,6 +1,7 @@
 enum AppRouteNames {
   dashboard(path: '/'),
-  cupertino(path: "/cupertino");
+  cupertino(path: "/cupertino"),
+  richText(path: "/richText");
 
   const AppRouteNames({
     required this.path,

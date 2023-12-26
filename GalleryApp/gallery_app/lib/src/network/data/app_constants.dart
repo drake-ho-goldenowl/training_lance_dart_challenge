@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:gallery_app/src/config/constant/text_manager.dart';
 import 'package:gallery_app/src/network/model/widget_model.dart';
+import 'package:gallery_app/src/router/route_name.dart';
 
 class AppConstant {
   static final listWidgetFlutter = [
     AppWidgetModel(
-        title: AppString.curpertino,
-        subTitle: AppString.beautifulAndHighFidelity,
-        icon: Icons.phone_iphone_outlined),
+      title: AppString.curpertino,
+      subTitle: AppString.beautifulAndHighFidelity,
+      icon: Icons.phone_iphone_outlined,
+    ),
+    AppWidgetModel(
+      title: AppString.richText,
+      subTitle: AppString.awidgetDisplaysText,
+      icon: Icons.text_format_outlined,
+      routeName: AppRouteNames.richText.name,
+    ),
     AppWidgetModel(
         title: AppString.typography,
         subTitle: AppString.allOfThePredefined,

@@ -5,6 +5,7 @@ import 'package:gallery_app/src/config/constant/value_manager.dart';
 import 'package:gallery_app/src/feature/dashboard/logic/dashboard_bloc.dart';
 import 'package:gallery_app/src/feature/dashboard/logic/dashboard_state.dart';
 import 'package:gallery_app/src/network/model/widget_model.dart';
+import 'package:gallery_app/src/router/coordinator.dart';
 import 'package:gallery_app/widget/app_bar.dart';
 import 'package:gallery_app/widget/list_tile.dart';
 
@@ -45,9 +46,12 @@ class DashboardScreen extends StatelessWidget {
             padding: EdgeInsets.zero,
             itemCount: widgets.length,
             itemBuilder: (context, index) => XListTile(
-                leadingIcon: _renderLeadingIconWidget(widgets[index].icon),
-                title: _renderPaddingWidget(widgets[index].title),
-                subTitle: _renderPaddingWidget(widgets[index].subTitle)));
+                  leadingIcon: _renderLeadingIconWidget(widgets[index].icon),
+                  title: _renderPaddingWidget(widgets[index].title),
+                  subTitle: _renderPaddingWidget(widgets[index].subTitle),
+                  isEnable: widgets[index].routeName != null,
+                  onTapped: () => AppCoordinator.showRichTextView(),
+                ));
       },
     );
   }
