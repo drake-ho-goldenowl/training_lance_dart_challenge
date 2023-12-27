@@ -14,6 +14,9 @@ class AppString {
   static const container = "Container";
   static const aconvenienceWidgetThatCombines =
       "A convenience widget that combines common painting, positioning, and sizing widgets.";
+  static const stackAlign = "Stack & Align";
+  static const awidgetThatPositions =
+      "A widget that positions its children relative to the edges of its box.";
   static const typography = "Typography";
   static const allOfThePredefined = "All of the predefined text styles";
   static const bottomAppBar = "Bottom app bar";
@@ -61,7 +64,7 @@ class AppString {
   static const color = "Color";
   static const src = "src";
 
-  //Text in Container view
+  //Text in Row & Column view
   static const mainAxisAlignment = "mainAxisAlignment";
   static const mainAxisSize = "mainAxisSize";
   static const crossAxisAlignment = "crossAxisAlignment";
@@ -70,4 +73,9 @@ class AppString {
   static const textBaseline = "textBaseline";
   static const row = "Row";
   static const column = "Column";
+
+  //Text in Stack & Align view
+  static const alignment = "Alignment";
+  static const stackFit = "StackFit";
+  static const clip = "clip";
 }

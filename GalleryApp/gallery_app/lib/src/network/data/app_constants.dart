@@ -24,6 +24,12 @@ class AppConstant {
       routeName: AppRouteNames.container.name,
     ),
     AppWidgetModel(
+      title: AppString.stackAlign,
+      subTitle: AppString.awidgetThatPositions,
+      icon: Icons.location_on,
+      routeName: AppRouteNames.stackAlign.name,
+    ),
+    AppWidgetModel(
         title: AppString.typography,
         subTitle: AppString.allOfThePredefined,
         icon: Icons.text_fields_outlined),
@@ -240,6 +246,79 @@ class AppConstant {
     const DropdownMenuItem(
       value: TextBaseline.alphabetic,
       child: Text('alphabetic'),
+    ),
+  ];
+
+  static final listAlignmentOptions = [
+    const DropdownMenuItem(
+      value: Alignment.center,
+      child: Text('center'),
+    ),
+    const DropdownMenuItem(
+      value: Alignment.centerLeft,
+      child: Text('centerLeft'),
+    ),
+    const DropdownMenuItem(
+      value: Alignment.centerRight,
+      child: Text('centerRight'),
+    ),
+    const DropdownMenuItem(
+      value: Alignment.topCenter,
+      child: Text('topCenter'),
+    ),
+    const DropdownMenuItem(
+      value: Alignment.topLeft,
+      child: Text('topLeft'),
+    ),
+    const DropdownMenuItem(
+      value: Alignment.topRight,
+      child: Text('topRight'),
+    ),
+    const DropdownMenuItem(
+      value: Alignment.bottomCenter,
+      child: Text('bottomCenter'),
+    ),
+    const DropdownMenuItem(
+      value: Alignment.bottomLeft,
+      child: Text('bottomLeft'),
+    ),
+    const DropdownMenuItem(
+      value: Alignment.bottomRight,
+      child: Text('bottomRight'),
+    ),
+  ];
+
+  static final listStackFitOptions = [
+    const DropdownMenuItem(
+      value: StackFit.loose,
+      child: Text('loose'),
+    ),
+    const DropdownMenuItem(
+      value: StackFit.expand,
+      child: Text('expand'),
+    ),
+    const DropdownMenuItem(
+      value: StackFit.passthrough,
+      child: Text('passthrough'),
+    ),
+  ];
+
+  static final listClipOptions = [
+    const DropdownMenuItem(
+      value: Clip.hardEdge,
+      child: Text('hardEdge'),
+    ),
+    const DropdownMenuItem(
+      value: Clip.none,
+      child: Text('none'),
+    ),
+    const DropdownMenuItem(
+      value: Clip.antiAlias,
+      child: Text('aitiAlias'),
+    ),
+    const DropdownMenuItem(
+      value: Clip.antiAliasWithSaveLayer,
+      child: Text('antiAliasWithSaveLayer'),
     ),
   ];
 }

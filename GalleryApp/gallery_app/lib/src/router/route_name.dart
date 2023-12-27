@@ -3,6 +3,7 @@ enum AppRouteNames {
   cupertino(path: "/cupertino"),
   richText(path: "/richText"),
   rowColumn(path: "/rowColumn"),
+  stackAlign(path: "/stackAlign"),
   container(path: "/container");
 
   const AppRouteNames({

@@ -7,6 +7,8 @@ import 'package:gallery_app/src/feature/dashboard/logic/dashboard_bloc.dart';
 import 'package:gallery_app/src/feature/dashboard/view/dashboard_view.dart';
 import 'package:gallery_app/src/feature/row_column_view/logic/row_column_bloc.dart';
 import 'package:gallery_app/src/feature/row_column_view/view/row_column_view.dart';
+import 'package:gallery_app/src/feature/stack_align_view/logic/stack_align_bloc.dart';
+import 'package:gallery_app/src/feature/stack_align_view/view/stack_align_view.dart';
 import 'package:gallery_app/src/feature/text_view/view/rich_text_view.dart';
 import 'package:gallery_app/src/network/data/app_constants.dart';
 import 'package:gallery_app/src/router/coordinator.dart';
@@ -68,6 +70,21 @@ class AppRouter {
                       AppConstant.listVerticalDirectionOptions,
                 ),
                 child: const RowColumnView(),
+              ),
+            ),
+            GoRoute(
+              parentNavigatorKey: AppCoordinator.navigatorKey,
+              path: AppRouteNames.stackAlign.subPath,
+              name: AppRouteNames.stackAlign.name,
+              builder: (_, __) => BlocProvider(
+                create: (context) => StackAlignBloc(
+                  listAlignmentOptions: AppConstant.listAlignmentOptions,
+                  listClipOptions: AppConstant.listClipOptions,
+                  listStackFitOptions: AppConstant.listStackFitOptions,
+                  listTextDirectionOptions:
+                      AppConstant.listTextDirectionOptions,
+                ),
+                child: const StackAlignView(),
               ),
             ),
           ]),
