@@ -2,6 +2,7 @@ enum AppRouteNames {
   dashboard(path: '/'),
   cupertino(path: "/cupertino"),
   richText(path: "/richText"),
+  rowColumn(path: "/rowColumn"),
   container(path: "/container");
 
   const AppRouteNames({

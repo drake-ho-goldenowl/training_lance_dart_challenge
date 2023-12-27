@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gallery_app/src/config/constant/text_manager.dart';
+import 'package:gallery_app/src/feature/row_column_view/logic/row_column_state.dart';
 import 'package:gallery_app/src/network/model/widget_model.dart';
 import 'package:gallery_app/src/router/route_name.dart';
 
@@ -57,6 +58,7 @@ class AppConstant {
     AppWidgetModel(
         title: AppString.rowColumn,
         subTitle: AppString.awidgetThatDisplaysIts,
+        routeName: AppRouteNames.rowColumn.name,
         icon: Icons.multitrack_audio_sharp),
     AppWidgetModel(
         title: AppString.wrapChip,
@@ -142,6 +144,102 @@ class AppConstant {
     const DropdownMenuItem(
       value: BlendMode.darken,
       child: Text('darken'),
+    ),
+  ];
+
+  static final listMode = [RowColumnMode.row, RowColumnMode.column];
+
+  static final listMainAxisSizeOptions = [
+    const DropdownMenuItem(
+      value: MainAxisSize.max,
+      child: Text('max'),
+    ),
+    const DropdownMenuItem(
+      value: MainAxisSize.min,
+      child: Text('min'),
+    ),
+  ];
+
+  static final listMainAxisAligmentOptions = [
+    const DropdownMenuItem(
+      value: MainAxisAlignment.start,
+      child: Text('start'),
+    ),
+    const DropdownMenuItem(
+      value: MainAxisAlignment.end,
+      child: Text('end'),
+    ),
+    const DropdownMenuItem(
+      value: MainAxisAlignment.center,
+      child: Text('center'),
+    ),
+    const DropdownMenuItem(
+      value: MainAxisAlignment.spaceAround,
+      child: Text('spaceAround'),
+    ),
+    const DropdownMenuItem(
+      value: MainAxisAlignment.spaceBetween,
+      child: Text('spaceBetween'),
+    ),
+    const DropdownMenuItem(
+      value: MainAxisAlignment.spaceEvenly,
+      child: Text('spaceEvenly'),
+    ),
+  ];
+
+  static final listCrossAxisSizeOptions = [
+    const DropdownMenuItem(
+      value: CrossAxisAlignment.center,
+      child: Text('center'),
+    ),
+    const DropdownMenuItem(
+      value: CrossAxisAlignment.start,
+      child: Text('start'),
+    ),
+    const DropdownMenuItem(
+      value: CrossAxisAlignment.end,
+      child: Text('end'),
+    ),
+    const DropdownMenuItem(
+      value: CrossAxisAlignment.baseline,
+      child: Text('baseline'),
+    ),
+    const DropdownMenuItem(
+      value: CrossAxisAlignment.stretch,
+      child: Text('stretch'),
+    ),
+  ];
+
+  static final listVerticalDirectionOptions = [
+    const DropdownMenuItem(
+      value: VerticalDirection.down,
+      child: Text('down'),
+    ),
+    const DropdownMenuItem(
+      value: VerticalDirection.up,
+      child: Text('up'),
+    ),
+  ];
+
+  static final listTextDirectionOptions = [
+    const DropdownMenuItem(
+      value: TextDirection.ltr,
+      child: Text('ltr'),
+    ),
+    const DropdownMenuItem(
+      value: TextDirection.rtl,
+      child: Text('rtl'),
+    ),
+  ];
+
+  static final listTextBaselineOptions = [
+    const DropdownMenuItem(
+      value: TextBaseline.ideographic,
+      child: Text('ideographic'),
+    ),
+    const DropdownMenuItem(
+      value: TextBaseline.alphabetic,
+      child: Text('alphabetic'),
     ),
   ];
 }

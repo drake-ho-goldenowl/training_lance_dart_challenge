@@ -60,4 +60,14 @@ class AppString {
   static const none = "None";
   static const color = "Color";
   static const src = "src";
+
+  //Text in Container view
+  static const mainAxisAlignment = "mainAxisAlignment";
+  static const mainAxisSize = "mainAxisSize";
+  static const crossAxisAlignment = "crossAxisAlignment";
+  static const verticalDirection = "verticalDirection";
+  static const textDirection = "textDirection";
+  static const textBaseline = "textBaseline";
+  static const row = "Row";
+  static const column = "Column";
 }
