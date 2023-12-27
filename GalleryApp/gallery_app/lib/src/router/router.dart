@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gallery_app/src/feature/container_view/logic/container_bloc.dart';
+import 'package:gallery_app/src/feature/container_view/view/container_view.dart';
 import 'package:gallery_app/src/feature/dashboard/logic/dashboard_bloc.dart';
 import 'package:gallery_app/src/feature/dashboard/view/dashboard_view.dart';
 import 'package:gallery_app/src/feature/text_view/view/rich_text_view.dart';
@@ -30,6 +32,21 @@ class AppRouter {
               path: AppRouteNames.richText.subPath,
               name: AppRouteNames.richText.name,
               builder: (_, __) => const RichTextView(),
+            ),
+            GoRoute(
+              parentNavigatorKey: AppCoordinator.navigatorKey,
+              path: AppRouteNames.container.subPath,
+              name: AppRouteNames.container.name,
+              builder: (_, __) => BlocProvider(
+                create: (context) => ContainerBloc(
+                    listBackGrColorOptions:
+                        AppConstant.listBackgroundColorOptions,
+                    listBlendModeOptions:
+                        AppConstant.listBlendModeContainerOptions,
+                    listBorderRadiusOptions:
+                        AppConstant.listBorderRadiusOptions),
+                child: const ContainerView(),
+              ),
             ),
           ]),
     ],

@@ -50,7 +50,8 @@ class DashboardScreen extends StatelessWidget {
                   title: _renderPaddingWidget(widgets[index].title),
                   subTitle: _renderPaddingWidget(widgets[index].subTitle),
                   isEnable: widgets[index].routeName != null,
-                  onTapped: () => AppCoordinator.showRichTextView(),
+                  onTapped: () => AppCoordinator.showWidgetView(
+                      widgets[index].routeName ?? '/'),
                 ));
       },
     );

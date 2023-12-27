@@ -2,6 +2,7 @@ class AppString {
   // App bar text
   static const myWidget = "My widget";
   static const richTextView = "Rich Text View";
+  static const containerView = "Container View";
 
   // Text in dashboard
   static const curpertino = "Curpertino";
@@ -10,6 +11,9 @@ class AppString {
   static const richText = "Rich Text";
   static const awidgetDisplaysText =
       "A widget displays text that uses multiple different styles";
+  static const container = "Container";
+  static const aconvenienceWidgetThatCombines =
+      "A convenience widget that combines common painting, positioning, and sizing widgets.";
   static const typography = "Typography";
   static const allOfThePredefined = "All of the predefined text styles";
   static const bottomAppBar = "Bottom app bar";
@@ -46,4 +50,14 @@ class AppString {
   static const four = "Four";
   static const five = "five";
   static const google = "Google";
+
+  //Text in Container view
+  static const border = "Border";
+  static const borderRadius = "BorderRadius";
+  static const boxShadow = "BoxShadow";
+  static const background = "Background";
+  static const blendMode = "BlendMode";
+  static const none = "None";
+  static const color = "Color";
+  static const src = "src";
 }
