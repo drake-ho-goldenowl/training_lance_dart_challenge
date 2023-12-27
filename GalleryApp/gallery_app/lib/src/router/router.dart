@@ -1,8 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gallery_app/src/feature/container_view/logic/container_bloc.dart';
+import 'package:gallery_app/src/feature/container_view/view/container_view.dart';
 import 'package:gallery_app/src/feature/dashboard/logic/dashboard_bloc.dart';
 import 'package:gallery_app/src/feature/dashboard/view/dashboard_view.dart';
+import 'package:gallery_app/src/feature/row_column_view/logic/row_column_bloc.dart';
+import 'package:gallery_app/src/feature/row_column_view/view/row_column_view.dart';
 import 'package:gallery_app/src/feature/text_view/view/rich_text_view.dart';
 import 'package:gallery_app/src/network/data/app_constants.dart';
 import 'package:gallery_app/src/router/coordinator.dart';
@@ -30,6 +34,41 @@ class AppRouter {
               path: AppRouteNames.richText.subPath,
               name: AppRouteNames.richText.name,
               builder: (_, __) => const RichTextView(),
+            ),
+            GoRoute(
+              parentNavigatorKey: AppCoordinator.navigatorKey,
+              path: AppRouteNames.container.subPath,
+              name: AppRouteNames.container.name,
+              builder: (_, __) => BlocProvider(
+                create: (context) => ContainerBloc(
+                    listBackGrColorOptions:
+                        AppConstant.listBackgroundColorOptions,
+                    listBlendModeOptions:
+                        AppConstant.listBlendModeContainerOptions,
+                    listBorderRadiusOptions:
+                        AppConstant.listBorderRadiusOptions),
+                child: const ContainerView(),
+              ),
+            ),
+            GoRoute(
+              parentNavigatorKey: AppCoordinator.navigatorKey,
+              path: AppRouteNames.rowColumn.subPath,
+              name: AppRouteNames.rowColumn.name,
+              builder: (_, __) => BlocProvider(
+                create: (context) => RowColumnBloc(
+                  listCrossAxisAlignmentOptions:
+                      AppConstant.listCrossAxisSizeOptions,
+                  listMainAxisAlignmentOptions:
+                      AppConstant.listMainAxisAligmentOptions,
+                  listMainAxisSizeOptions: AppConstant.listMainAxisSizeOptions,
+                  listTextBaselineOptions: AppConstant.listTextBaselineOptions,
+                  listTextDirectionOptions:
+                      AppConstant.listTextDirectionOptions,
+                  listVerticalDirectionOptions:
+                      AppConstant.listVerticalDirectionOptions,
+                ),
+                child: const RowColumnView(),
+              ),
             ),
           ]),
     ],
