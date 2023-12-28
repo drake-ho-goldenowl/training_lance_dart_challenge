@@ -26,7 +26,7 @@ class AppTextWithSwitch extends StatelessWidget {
         Switch(
           activeColor: Colors.blue,
           value: value,
-          onChanged: (value) => onChanged?.call(value),
+          onChanged: onChanged,
         )
       ],
     );
