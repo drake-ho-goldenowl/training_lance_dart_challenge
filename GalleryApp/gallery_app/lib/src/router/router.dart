@@ -14,6 +14,8 @@ import 'package:gallery_app/src/feature/row_column_view/view/row_column_view.dar
 import 'package:gallery_app/src/feature/stack_align_view/logic/stack_align_bloc.dart';
 import 'package:gallery_app/src/feature/stack_align_view/view/stack_align_view.dart';
 import 'package:gallery_app/src/feature/text_view/view/rich_text_view.dart';
+import 'package:gallery_app/src/feature/wrap_chip_view/logic/wrap_chip_bloc.dart';
+import 'package:gallery_app/src/feature/wrap_chip_view/view/wrap_chip_view.dart';
 import 'package:gallery_app/src/network/data/app_constants.dart';
 import 'package:gallery_app/src/router/coordinator.dart';
 import 'package:gallery_app/src/router/route_name.dart';
@@ -107,6 +109,16 @@ class AppRouter {
               builder: (_, __) => BlocProvider(
                 create: (context) => BottomAppBarBloc(),
                 child: const BottomAppBarView(),
+              ),
+            ),
+            GoRoute(
+              parentNavigatorKey: AppCoordinator.navigatorKey,
+              path: AppRouteNames.wrapChip.subPath,
+              name: AppRouteNames.wrapChip.name,
+              builder: (_, __) => BlocProvider(
+                create: (context) =>
+                    WrapAndChipBloc(listShape: AppConstant.listShapeOptions),
+                child: const WrapAndChipView(),
               ),
             ),
           ]),

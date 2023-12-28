@@ -71,6 +71,7 @@ class AppConstant {
     AppWidgetModel(
         title: AppString.wrapChip,
         subTitle: AppString.wrapChip,
+        routeName: AppRouteNames.wrapChip.name,
         icon: Icons.edit_attributes),
   ];
 
@@ -321,6 +322,25 @@ class AppConstant {
     const DropdownMenuItem(
       value: Clip.antiAliasWithSaveLayer,
       child: Text('antiAliasWithSaveLayer'),
+    ),
+  ];
+
+  static final listShapeOptions = [
+    const DropdownMenuItem(
+      value: StadiumBorder(),
+      child: Text('Stadium'),
+    ),
+    const DropdownMenuItem(
+      value: RoundedRectangleBorder(),
+      child: Text('Rounded Rectangle'),
+    ),
+    const DropdownMenuItem(
+      value: CircleBorder(),
+      child: Text('Circle'),
+    ),
+    const DropdownMenuItem(
+      value: BeveledRectangleBorder(),
+      child: Text('BeveledRectangle'),
     ),
   ];
 }
