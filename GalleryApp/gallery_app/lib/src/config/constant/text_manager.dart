@@ -42,6 +42,8 @@ class AppString {
   static const awidgetThatDisplaysIts =
       "A widget that displays its children in a horizontal and vertical array";
   static const wrapChip = "Wrap & Chip";
+  static const customBoxShape = "Custom Box Shape";
+  static const awidgetCustomShape = "A Widget custom shape";
 
   // Text in Rich text view
   static const createATextWidget =

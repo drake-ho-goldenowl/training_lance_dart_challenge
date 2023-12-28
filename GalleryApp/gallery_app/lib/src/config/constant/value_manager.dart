@@ -7,6 +7,7 @@ class AppSize {
   static const s36 = 36.0;
   static const s42 = 42.0;
   static const s50 = 50.0;
+  static const s70 = 70.0;
   static const s125 = 125.0;
   static const s200 = 200.0;
 }
@@ -17,6 +18,7 @@ class AppPadding {
   static const p8 = 8.0;
   static const p10 = 10.0;
   static const p12 = 12.0;
+  static const p15 = 15.0;
   static const p16 = 16.0;
   static const p36 = 36.0;
 }
@@ -26,7 +28,9 @@ class AppMargin {
   static const m8 = 8.0;
   static const m10 = 10.0;
   static const m12 = 12.0;
+  static const m15 = 15.0;
   static const m16 = 16.0;
+  static const m29 = 29.0;
 }
 
 class AppRadius {

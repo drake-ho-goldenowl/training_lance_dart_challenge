@@ -5,6 +5,7 @@ enum AppRouteNames {
   rowColumn(path: "/rowColumn"),
   wrapChip(path: "/wrapChip"),
   stackAlign(path: "/stackAlign"),
+  customBoxShape(path: "/customBoxShape"),
   bottomAppBar(path: "/bottomAppBar"),
   container(path: "/container");
 

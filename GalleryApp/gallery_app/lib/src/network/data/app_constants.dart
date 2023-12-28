@@ -64,6 +64,11 @@ class AppConstant {
         subTitle: AppString.textFieldTextFieldForm,
         icon: Icons.menu),
     AppWidgetModel(
+        title: AppString.customBoxShape,
+        subTitle: AppString.awidgetCustomShape,
+        routeName: AppRouteNames.customBoxShape.name,
+        icon: Icons.dashboard_customize_outlined),
+    AppWidgetModel(
         title: AppString.rowColumn,
         subTitle: AppString.awidgetThatDisplaysIts,
         routeName: AppRouteNames.rowColumn.name,

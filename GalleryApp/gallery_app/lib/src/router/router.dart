@@ -7,6 +7,7 @@ import 'package:gallery_app/src/feature/container_view/logic/container_bloc.dart
 import 'package:gallery_app/src/feature/container_view/view/container_view.dart';
 import 'package:gallery_app/src/feature/cupertino_view/logic/cupertino_bloc.dart';
 import 'package:gallery_app/src/feature/cupertino_view/view/cupertino_view.dart';
+import 'package:gallery_app/src/feature/custom_box_shape_view/view/custom_box_shape_view.dart';
 import 'package:gallery_app/src/feature/dashboard/logic/dashboard_bloc.dart';
 import 'package:gallery_app/src/feature/dashboard/view/dashboard_view.dart';
 import 'package:gallery_app/src/feature/row_column_view/logic/row_column_bloc.dart';
@@ -120,6 +121,12 @@ class AppRouter {
                     WrapAndChipBloc(listShape: AppConstant.listShapeOptions),
                 child: const WrapAndChipView(),
               ),
+            ),
+            GoRoute(
+              parentNavigatorKey: AppCoordinator.navigatorKey,
+              path: AppRouteNames.customBoxShape.subPath,
+              name: AppRouteNames.customBoxShape.name,
+              builder: (_, __) => const CustomBoxShapeView(),
             ),
           ]),
     ],
