@@ -78,4 +78,14 @@ class AppString {
   static const alignment = "Alignment";
   static const stackFit = "StackFit";
   static const clip = "clip";
+
+  // Text in Cupertino view
+  static const widget = "Widget";
+  static const modal = "Modal";
+  static const form = "Form";
+  static const switchText = "Switch";
+  static const sliderText = "Slider";
+  static const withBackground = "With background";
+  static const indicator = "Indicator";
+  static const pullToRefresh = "Pull to refresh";
 }

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gallery_app/src/feature/container_view/logic/container_bloc.dart';
 import 'package:gallery_app/src/feature/container_view/view/container_view.dart';
+import 'package:gallery_app/src/feature/cupertino_view/logic/cupertino_bloc.dart';
+import 'package:gallery_app/src/feature/cupertino_view/view/cupertino_view.dart';
 import 'package:gallery_app/src/feature/dashboard/logic/dashboard_bloc.dart';
 import 'package:gallery_app/src/feature/dashboard/view/dashboard_view.dart';
 import 'package:gallery_app/src/feature/row_column_view/logic/row_column_bloc.dart';
@@ -85,6 +87,15 @@ class AppRouter {
                       AppConstant.listTextDirectionOptions,
                 ),
                 child: const StackAlignView(),
+              ),
+            ),
+            GoRoute(
+              parentNavigatorKey: AppCoordinator.navigatorKey,
+              path: AppRouteNames.cupertino.subPath,
+              name: AppRouteNames.cupertino.name,
+              builder: (_, __) => BlocProvider(
+                create: (context) => CupertinoBloc(),
+                child: const CupertinoView(),
               ),
             ),
           ]),

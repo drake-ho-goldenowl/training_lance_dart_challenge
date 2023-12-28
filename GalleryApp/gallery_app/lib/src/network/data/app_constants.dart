@@ -10,6 +10,7 @@ class AppConstant {
       title: AppString.curpertino,
       subTitle: AppString.beautifulAndHighFidelity,
       icon: Icons.phone_iphone_outlined,
+      routeName: AppRouteNames.cupertino.name,
     ),
     AppWidgetModel(
       title: AppString.richText,

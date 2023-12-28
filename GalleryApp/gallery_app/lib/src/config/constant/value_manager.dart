@@ -17,6 +17,7 @@ class AppPadding {
   static const p10 = 10.0;
   static const p12 = 12.0;
   static const p16 = 16.0;
+  static const p36 = 36.0;
 }
 
 class AppMargin {
@@ -29,6 +30,7 @@ class AppMargin {
 
 class AppRadius {
   static const r0 = 0.0;
+  static const r4 = 4.0;
   static const r8 = 8.0;
 }
 
@@ -41,4 +43,5 @@ class AppFontSize {
   static const f20 = 20.0;
   static const f24 = 24.0;
   static const f30 = 30.0;
+  static const f50 = 50.0;
 }
