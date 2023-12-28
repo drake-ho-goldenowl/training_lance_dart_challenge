@@ -4,6 +4,7 @@ enum AppRouteNames {
   richText(path: "/richText"),
   rowColumn(path: "/rowColumn"),
   stackAlign(path: "/stackAlign"),
+  bottomAppBar(path: "/bottomAppBar"),
   container(path: "/container");
 
   const AppRouteNames({

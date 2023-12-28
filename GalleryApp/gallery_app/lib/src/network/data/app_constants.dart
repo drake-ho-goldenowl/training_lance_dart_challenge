@@ -37,6 +37,7 @@ class AppConstant {
     AppWidgetModel(
         title: AppString.bottomAppBar,
         subTitle: AppString.bottomApplicationBar,
+        routeName: AppRouteNames.bottomAppBar.name,
         icon: Icons.menu),
     AppWidgetModel(
         title: AppString.button,

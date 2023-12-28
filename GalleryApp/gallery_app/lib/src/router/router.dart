@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gallery_app/src/feature/bottom_app_bar_view/logic/bottom_app_bar_bloc.dart';
+import 'package:gallery_app/src/feature/bottom_app_bar_view/view/bottom_app_bar_view.dart';
 import 'package:gallery_app/src/feature/container_view/logic/container_bloc.dart';
 import 'package:gallery_app/src/feature/container_view/view/container_view.dart';
 import 'package:gallery_app/src/feature/cupertino_view/logic/cupertino_bloc.dart';
@@ -96,6 +98,15 @@ class AppRouter {
               builder: (_, __) => BlocProvider(
                 create: (context) => CupertinoBloc(),
                 child: const CupertinoView(),
+              ),
+            ),
+            GoRoute(
+              parentNavigatorKey: AppCoordinator.navigatorKey,
+              path: AppRouteNames.bottomAppBar.subPath,
+              name: AppRouteNames.bottomAppBar.name,
+              builder: (_, __) => BlocProvider(
+                create: (context) => BottomAppBarBloc(),
+                child: const BottomAppBarView(),
               ),
             ),
           ]),

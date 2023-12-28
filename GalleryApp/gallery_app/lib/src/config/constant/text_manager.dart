@@ -3,6 +3,7 @@ class AppString {
   static const myWidget = "My widget";
   static const richTextView = "Rich Text View";
   static const containerView = "Container View";
+  static const bottomAppBarView = "Bottom App Bar View";
 
   // Text in dashboard
   static const curpertino = "Curpertino";
@@ -88,4 +89,13 @@ class AppString {
   static const withBackground = "With background";
   static const indicator = "Indicator";
   static const pullToRefresh = "Pull to refresh";
+
+  // Text in Scaffold view
+  static const floatActionButton = "Float Action Button";
+  static const notch = "Notch";
+  static const floatActionButtonPosition = "Float Action Button Position";
+  static const dockedEnd = "Docked - End";
+  static const dockedCenter = "Docked - Center";
+  static const floatingEnd = "Floating - End";
+  static const floatingCenter = "Floating - Center";
 }
