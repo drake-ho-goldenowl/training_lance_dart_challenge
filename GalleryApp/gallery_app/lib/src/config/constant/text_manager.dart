@@ -4,6 +4,7 @@ class AppString {
   static const richTextView = "Rich Text View";
   static const containerView = "Container View";
   static const bottomAppBarView = "Bottom App Bar View";
+  static const wrapView = "Wrap View";
 
   // Text in dashboard
   static const curpertino = "Curpertino";
@@ -98,4 +99,22 @@ class AppString {
   static const dockedCenter = "Docked - Center";
   static const floatingEnd = "Floating - End";
   static const floatingCenter = "Floating - Center";
+
+  // Text in WrapChip view
+  static const chipChip = "Chip Chip";
+  static const chip = "Chip";
+  static const actionChip = "Action Chip";
+  static const rawChip = "Raw Chip";
+  static const choiceChip = "Choice Chip";
+  static const disable = "Disable";
+  static const small = "Small";
+  static const large = "Large";
+  static const inputChip = "Input Chip";
+  static const ios = "iOS";
+  static const android = "Android";
+  static const elevation = "elevation";
+  static const avatar = "avatar";
+  static const deleteIcon = "deleteIcon";
+  static const spacing = "spacing";
+  static const runSpacing = "runSpacing";
 }

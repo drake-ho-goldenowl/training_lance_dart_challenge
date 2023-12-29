@@ -3,6 +3,7 @@ enum AppRouteNames {
   cupertino(path: "/cupertino"),
   richText(path: "/richText"),
   rowColumn(path: "/rowColumn"),
+  wrapChip(path: "/wrapChip"),
   stackAlign(path: "/stackAlign"),
   bottomAppBar(path: "/bottomAppBar"),
   container(path: "/container");
