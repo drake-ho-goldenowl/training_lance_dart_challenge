@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gallery_app/src/feature/bottom_app_bar_view/logic/bottom_app_bar_bloc.dart';
 import 'package:gallery_app/src/feature/bottom_app_bar_view/view/bottom_app_bar_view.dart';
+import 'package:gallery_app/src/feature/button_view/view/button_view.dart';
 import 'package:gallery_app/src/feature/container_view/logic/container_bloc.dart';
 import 'package:gallery_app/src/feature/container_view/view/container_view.dart';
 import 'package:gallery_app/src/feature/cupertino_view/logic/cupertino_bloc.dart';
@@ -127,6 +128,12 @@ class AppRouter {
               path: AppRouteNames.customBoxShape.subPath,
               name: AppRouteNames.customBoxShape.name,
               builder: (_, __) => const CustomBoxShapeView(),
+            ),
+            GoRoute(
+              parentNavigatorKey: AppCoordinator.navigatorKey,
+              path: AppRouteNames.button.subPath,
+              name: AppRouteNames.button.name,
+              builder: (_, __) => const ButtonView(),
             ),
           ]),
     ],

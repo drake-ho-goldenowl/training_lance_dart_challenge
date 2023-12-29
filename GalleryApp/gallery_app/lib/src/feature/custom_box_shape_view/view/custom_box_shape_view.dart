@@ -136,7 +136,7 @@ class CouponPainter extends CustomPainter {
         strokeSolidPaint);
     canvas.drawArc(
         Rect.fromCircle(
-            center: Offset(size.width - borderRadius, borderRadius), radius: 4),
+            center: Offset(size.width - borderRadius, borderRadius), radius: borderRadius),
         3 * pi / 2,
         pi / 2,
         false,

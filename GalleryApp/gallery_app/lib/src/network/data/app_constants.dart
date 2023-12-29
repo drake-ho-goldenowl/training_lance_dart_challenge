@@ -42,6 +42,7 @@ class AppConstant {
     AppWidgetModel(
         title: AppString.button,
         subTitle: AppString.raisedButtonFlatButton,
+        routeName: AppRouteNames.button.name,
         icon: Icons.web),
     AppWidgetModel(
         title: AppString.list,

@@ -5,6 +5,7 @@ class AppString {
   static const containerView = "Container View";
   static const bottomAppBarView = "Bottom App Bar View";
   static const wrapView = "Wrap View";
+  static const buttonView = "Button View";
 
   // Text in dashboard
   static const curpertino = "Curpertino";
@@ -119,4 +120,20 @@ class AppString {
   static const deleteIcon = "deleteIcon";
   static const spacing = "spacing";
   static const runSpacing = "runSpacing";
+
+  // Text in Button View
+  static const dropdown = "Dropdown";
+  static const dropdownFormField = "Dropdown Form Field";
+  static const elevatedButton = "Elevated Button";
+  static const elevatedButtonIcon = "Elevated Button Icon";
+  static const textButton = "Text Button";
+  static const textButtonIcon = "Text Button Icon";
+  static const outlinedButton = "Outlined Button";
+  static const outlinedButtonIcon = "Outlined Button Icon";
+  static const cupertinoButton = "Cupertino Button";
+  static const materialButton = "Material Button";
+  static const rawMaterialButton = "Raw Material Button";
+  static const option1 = "Option 1";
+  static const option2 = "Option 2";
+  static const option3 = "Option 3";
 }
