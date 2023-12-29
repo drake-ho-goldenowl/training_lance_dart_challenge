@@ -15,6 +15,8 @@ import 'package:gallery_app/src/feature/row_column_view/logic/row_column_bloc.da
 import 'package:gallery_app/src/feature/row_column_view/view/row_column_view.dart';
 import 'package:gallery_app/src/feature/stack_align_view/logic/stack_align_bloc.dart';
 import 'package:gallery_app/src/feature/stack_align_view/view/stack_align_view.dart';
+import 'package:gallery_app/src/feature/text_field_view/logic/text_field_bloc.dart';
+import 'package:gallery_app/src/feature/text_field_view/view/text_field_view.dart';
 import 'package:gallery_app/src/feature/text_view/view/rich_text_view.dart';
 import 'package:gallery_app/src/feature/wrap_chip_view/logic/wrap_chip_bloc.dart';
 import 'package:gallery_app/src/feature/wrap_chip_view/view/wrap_chip_view.dart';
@@ -134,6 +136,15 @@ class AppRouter {
               path: AppRouteNames.button.subPath,
               name: AppRouteNames.button.name,
               builder: (_, __) => const ButtonView(),
+            ),
+            GoRoute(
+              parentNavigatorKey: AppCoordinator.navigatorKey,
+              path: AppRouteNames.textField.subPath,
+              name: AppRouteNames.textField.name,
+              builder: (_, __) => BlocProvider(
+                create: (context) => TextFieldBloc(),
+                child: TextFieldView(),
+              ),
             ),
           ]),
     ],
