@@ -143,7 +143,7 @@ class AppRouter {
               name: AppRouteNames.textField.name,
               builder: (_, __) => BlocProvider(
                 create: (context) => TextFieldBloc(),
-                child: TextFieldView(),
+                child: const TextFieldView(),
               ),
             ),
           ]),
