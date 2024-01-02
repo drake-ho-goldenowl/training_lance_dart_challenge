@@ -67,6 +67,7 @@ class AppConstant {
         icon: Icons.tab_unselected_sharp),
     AppWidgetModel(
         title: AppString.textField,
+        routeName: AppRouteNames.textField.name,
         subTitle: AppString.textFieldTextFieldForm,
         icon: Icons.menu),
     AppWidgetModel(

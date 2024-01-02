@@ -8,6 +8,7 @@ enum AppRouteNames {
   customBoxShape(path: "/customBoxShape"),
   bottomAppBar(path: "/bottomAppBar"),
   button(path: "/button"),
+  textField(path: "/textField"),
   image(path: "/image"),
   container(path: "/container");
 

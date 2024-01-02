@@ -6,6 +6,7 @@ class AppString {
   static const bottomAppBarView = "Bottom App Bar View";
   static const wrapView = "Wrap View";
   static const buttonView = "Button View";
+  static const formView = "Form View";
   static const imageView = "Image View";
 
   // Text in dashboard
@@ -139,4 +140,14 @@ class AppString {
   static const option1 = "Option 1";
   static const option2 = "Option 2";
   static const option3 = "Option 3";
+
+  // Text in Button View
+  static const hintText = "Hint Text";
+  static const labelText = "Label Text";
+  static const helpText = "Help Text";
+  static const errorText = "Error Text";
+  static const counterText = "Counter Text";
+  static const prefix = "Prefix";
+  static const suffix = "Suffix";
+  static const prefixIcon = "Prefix Icon";
 }
