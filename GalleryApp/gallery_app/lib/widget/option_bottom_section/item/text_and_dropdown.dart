@@ -5,31 +5,43 @@ class AppTextWithDropdown<T> extends StatelessWidget {
   const AppTextWithDropdown(
       {super.key,
       this.label,
-      required this.value,
+      this.value,
       this.labelStyle = const TextStyle(fontSize: AppFontSize.f16),
       this.onChanged,
-      this.listValue, this.onTapped});
+      this.listValue,
+      this.onTapped,
+      this.hintText});
   final String? label;
   final TextStyle labelStyle;
   final List<DropdownMenuItem<T>>? listValue;
-  final T value;
+  final T? value;
   final void Function(T)? onChanged;
   final void Function(T)? onTapped;
+  final String? hintText;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        label != null ? Text(
-          label!,
-          style: labelStyle,
-        ) : const SizedBox.shrink(),
+        label != null
+            ? Expanded(
+                child: Text(
+                  label!,
+                  style: labelStyle,
+                ),
+              )
+            : const SizedBox.shrink(),
         DropdownButton(
           items: listValue,
           value: value,
-          onTap: () => onTapped?.call(value),
+          hint: hintText == null
+              ? null
+              : Text(
+                  hintText!,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+          onTap: () => onTapped?.call(value as T),
           onChanged: (value) => onChanged?.call(value as T),
         )
       ],

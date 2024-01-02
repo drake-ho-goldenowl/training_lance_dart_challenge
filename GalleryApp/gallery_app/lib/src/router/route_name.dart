@@ -7,6 +7,7 @@ enum AppRouteNames {
   stackAlign(path: "/stackAlign"),
   customBoxShape(path: "/customBoxShape"),
   bottomAppBar(path: "/bottomAppBar"),
+  button(path: "/button"),
   container(path: "/container");
 
   const AppRouteNames({
