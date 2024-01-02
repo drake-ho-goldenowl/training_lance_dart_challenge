@@ -11,6 +11,7 @@ import 'package:gallery_app/src/feature/cupertino_view/view/cupertino_view.dart'
 import 'package:gallery_app/src/feature/custom_box_shape_view/view/custom_box_shape_view.dart';
 import 'package:gallery_app/src/feature/dashboard/logic/dashboard_bloc.dart';
 import 'package:gallery_app/src/feature/dashboard/view/dashboard_view.dart';
+import 'package:gallery_app/src/feature/image_view/view/image_view.dart';
 import 'package:gallery_app/src/feature/row_column_view/logic/row_column_bloc.dart';
 import 'package:gallery_app/src/feature/row_column_view/view/row_column_view.dart';
 import 'package:gallery_app/src/feature/stack_align_view/logic/stack_align_bloc.dart';
@@ -134,6 +135,12 @@ class AppRouter {
               path: AppRouteNames.button.subPath,
               name: AppRouteNames.button.name,
               builder: (_, __) => const ButtonView(),
+            ),
+            GoRoute(
+              parentNavigatorKey: AppCoordinator.navigatorKey,
+              path: AppRouteNames.image.subPath,
+              name: AppRouteNames.image.name,
+              builder: (_, __) => const ImageView(),
             ),
           ]),
     ],

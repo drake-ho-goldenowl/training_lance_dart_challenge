@@ -6,6 +6,7 @@ class AppString {
   static const bottomAppBarView = "Bottom App Bar View";
   static const wrapView = "Wrap View";
   static const buttonView = "Button View";
+  static const imageView = "Image View";
 
   // Text in dashboard
   static const curpertino = "Curpertino";
@@ -45,6 +46,8 @@ class AppString {
   static const wrapChip = "Wrap & Chip";
   static const customBoxShape = "Custom Box Shape";
   static const awidgetCustomShape = "A Widget custom shape";
+  static const image = "Image";
+  static const awidgetShowImage = "A Widget show image";
 
   // Text in Rich text view
   static const createATextWidget =
