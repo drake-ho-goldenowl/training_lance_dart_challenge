@@ -45,6 +45,11 @@ class AppConstant {
         routeName: AppRouteNames.button.name,
         icon: Icons.web),
     AppWidgetModel(
+        title: AppString.image,
+        subTitle: AppString.awidgetShowImage,
+        routeName: AppRouteNames.image.name,
+        icon: Icons.image),
+    AppWidgetModel(
         title: AppString.list,
         subTitle: AppString.scrollingListLayout,
         icon: Icons.format_list_bulleted),
