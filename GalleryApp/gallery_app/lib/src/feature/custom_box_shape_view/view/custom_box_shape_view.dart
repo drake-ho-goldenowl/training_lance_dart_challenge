@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:gallery_app/src/config/constant/text_manager.dart';
 import 'package:gallery_app/src/config/constant/value_manager.dart';
@@ -13,7 +11,7 @@ class CustomBoxShapeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Theme(
       data: ThemeData(
-        useMaterial3: true,
+        useMaterial3: false,
         primaryTextTheme: const TextTheme(
             displayLarge: TextStyle(
                 fontSize: AppFontSize.f20,
@@ -21,7 +19,7 @@ class CustomBoxShapeView extends StatelessWidget {
                 fontWeight: FontWeight.w900)),
       ),
       child: Scaffold(
-        backgroundColor: Colors.grey[400],
+        backgroundColor: Colors.grey[300],
         body: Column(
           children: [_renderAppBar(), Expanded(child: _renderBody(context))],
         ),
@@ -51,7 +49,8 @@ class CustomBoxShapeView extends StatelessWidget {
           padding: const EdgeInsets.all(AppPadding.p16),
           child: CustomPaint(
             size: const Size(double.infinity, 100),
-            painter: CouponPainter(borderRadius: AppRadius.r4),
+            painter: CouponPainter(
+                borderRadius: AppRadius.r4, backgroundColor: Colors.white),
             child: Row(
               children: [
                 _renderMoney(),
@@ -110,9 +109,14 @@ class CustomBoxShapeView extends StatelessWidget {
 class CouponPainter extends CustomPainter {
   final double borderRadius;
   final bool isHasDashLine;
+  final Color backgroundColor;
 
-  CouponPainter(
-      {super.repaint, required this.borderRadius, this.isHasDashLine = true});
+  CouponPainter({
+    super.repaint,
+    required this.borderRadius,
+    this.isHasDashLine = true,
+    required this.backgroundColor,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -121,59 +125,40 @@ class CouponPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..color = Colors.black
       ..strokeWidth = 1;
-    canvas.drawArc(
-        Rect.fromCircle(
-            center: Offset(borderRadius, borderRadius), radius: borderRadius),
-        pi,
-        pi / 2,
-        false,
-        strokeSolidPaint);
-    canvas.drawLine(
-        Offset(borderRadius, 0), const Offset(100, 0), strokeSolidPaint);
-    canvas.drawArc(Rect.fromCircle(center: const Offset(108, 0), radius: 8), 0,
-        pi, false, strokeSolidPaint);
-    canvas.drawLine(const Offset(116, 0), Offset(size.width - borderRadius, 0),
-        strokeSolidPaint);
-    canvas.drawArc(
-        Rect.fromCircle(
-            center: Offset(size.width - borderRadius, borderRadius), radius: borderRadius),
-        3 * pi / 2,
-        pi / 2,
-        false,
-        strokeSolidPaint);
-    canvas.drawLine(Offset(size.width, borderRadius),
-        Offset(size.width, size.height - borderRadius), strokeSolidPaint);
-    canvas.drawArc(
-        Rect.fromCircle(
-            center:
-                Offset(size.width - borderRadius, size.height - borderRadius),
-            radius: borderRadius),
-        0,
-        pi / 2,
-        false,
-        strokeSolidPaint);
-    canvas.drawLine(Offset(size.width - borderRadius, size.height),
-        Offset(116, size.height), strokeSolidPaint);
-    canvas.drawArc(Rect.fromCircle(center: Offset(108, size.height), radius: 8),
-        pi, pi, false, strokeSolidPaint);
-    canvas.drawLine(Offset(100, size.height), Offset(borderRadius, size.height),
-        strokeSolidPaint);
-    canvas.drawArc(
-        Rect.fromCircle(
-            center: Offset(borderRadius, size.height - borderRadius),
-            radius: borderRadius),
-        pi / 2,
-        pi / 2,
-        false,
-        strokeSolidPaint);
-    canvas.drawLine(Offset(0, size.height - borderRadius),
-        Offset(0, borderRadius), strokeSolidPaint);
+    final fillPaint = Paint()
+      ..style = PaintingStyle.fill
+      ..color = backgroundColor;
+
+    final Path couponTicket = Path();
+    couponTicket.moveTo(borderRadius, 0);
+    couponTicket.lineTo(100, 0);
+    couponTicket.arcToPoint(const Offset(116, 0),
+        radius: const Radius.circular(8), clockwise: false);
+    couponTicket.lineTo(size.width - borderRadius, 0);
+    couponTicket.arcToPoint(Offset(size.width, borderRadius),
+        radius: Radius.circular(borderRadius), clockwise: true);
+    couponTicket.lineTo(size.width, size.height - borderRadius);
+    couponTicket.arcToPoint(Offset(size.width - borderRadius, size.height),
+        radius: Radius.circular(borderRadius), clockwise: true);
+    couponTicket.lineTo(116, size.height);
+    couponTicket.arcToPoint(Offset(100, size.height),
+        radius: const Radius.circular(8), clockwise: false);
+    couponTicket.lineTo(borderRadius, size.height);
+    couponTicket.arcToPoint(Offset(0, size.height - borderRadius),
+        radius: Radius.circular(borderRadius), clockwise: true);
+    couponTicket.lineTo(0, borderRadius);
+    couponTicket.arcToPoint(Offset(borderRadius, 0),
+        radius: Radius.circular(borderRadius), clockwise: true);
+    couponTicket.close();
+
+    canvas.drawShadow(couponTicket, Colors.black, 2, true);
+    canvas.drawPath(couponTicket, fillPaint);
+
     if (isHasDashLine) {
       _drawDashedLine(canvas, size, strokeSolidPaint,
           offsetStart: const Offset(108, 10),
           offsetStop: const Offset(108, 90));
     }
-    
   }
 
   @override
