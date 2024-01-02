@@ -186,7 +186,9 @@ class ButtonView extends StatelessWidget {
             child: CustomPaint(
               size: const Size(double.infinity, AppSize.s36),
               painter: CouponPainter(
-                  borderRadius: AppRadius.r8, isHasDashLine: false),
+                  borderRadius: AppRadius.r8,
+                  isHasDashLine: false,
+                  backgroundColor: Colors.grey),
             )),
         const Text(
           AppString.materialButton,
@@ -204,8 +206,10 @@ class ButtonView extends StatelessWidget {
           onPressed: () {},
           child: CustomPaint(
             size: const Size(double.infinity, AppSize.s36),
-            painter:
-                CouponPainter(borderRadius: AppRadius.r8, isHasDashLine: false),
+            painter: CouponPainter(
+                borderRadius: AppRadius.r8,
+                isHasDashLine: false,
+                backgroundColor: Colors.grey),
           ),
         ),
         const Text(
