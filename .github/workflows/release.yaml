@@ -62,8 +62,7 @@ jobs:
           PLAY_CONFIG_JSON: ${{ secrets.PLAY_CONFIG_JSON }}
           PLAY_PATH: "./GalleryApp/gallery_app/android/play_config.json"
         run : |
-          echo "$PLAY_CONFIG_JSON" > play_config.json.b64
-          echo "$PLAY_CONFIG_JSON" | base64 --decode > ${{env.PLAY_PATH}}
+          echo ${{ secrets.PLAY_CONFIG_JSON }} | base64 --decode > ${{env.PLAY_PATH}}
 
       - name: Deploy app to Firebse Distribution 🚀
         working-directory: ./GalleryApp/gallery_app/android
