@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/game1/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/game1/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/game1/build" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/game2/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/game2/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/game2/build" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/game3/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/game3/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/game3/build" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/game4/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/game4/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/game4/build" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/unit_test_1/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/unit_test_1/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/unit_test_1/build" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/unit_test_2/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/unit_test_2/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/unit_test_2/build" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/unit_test_3/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/unit_test_3/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/unit_test_3/build" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/unit_test_4/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/unit_test_4/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Dart Challange/unit_test_4/build" />
+      <excludeFolder url="file://$MODULE_DIR$/FirstApps/wishlist_app/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/FirstApps/wishlist_app/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/FirstApps/wishlist_app/build" />
+      <excludeFolder url="file://$MODULE_DIR$/GalleryApp/gallery_app/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/GalleryApp/gallery_app/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/GalleryApp/gallery_app/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

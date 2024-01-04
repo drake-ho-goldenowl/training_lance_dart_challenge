@@ -1,0 +1,1 @@
+A simple app show all basic widget of Flutter

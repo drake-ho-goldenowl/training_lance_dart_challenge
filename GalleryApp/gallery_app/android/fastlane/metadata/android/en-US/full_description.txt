@@ -1,0 +1,1 @@
+A simple app show all widget of Flutter such as: Text, RichText, Button, TextField, Container, Stack,... and its arguments.
