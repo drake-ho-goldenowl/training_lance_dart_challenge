@@ -47,10 +47,10 @@ jobs:
       - name: Configure Keystore
         env:
           ANDROID_KEYSTORE_FILE: ./../upload-keystore.jks
-          KEYSTORE_KEY_ALIAS: ${{ secrets.KEYALIAS }}
-          KEYSTORE_KEY_PASSWORD: ${{ secrets.KEYPASSWORD }}
-          KEYSTORE_STORE_PASSWORD: ${{ secrets.STOREPASSWORD }}
-          PROPERTIES_PATH: "./android/key.properties"
+          KEYSTORE_KEY_ALIAS: ${{ secrets.KEYSTORE_KEY_ALIAS }}
+          KEYSTORE_KEY_PASSWORD: ${{ secrets.KEYSTORE_KEY_PASSWORD }}
+          KEYSTORE_STORE_PASSWORD: ${{ secrets.KEYSTORE_STORE_PASSWORD }}
+          PROPERTIES_PATH: "./../key.properties"
         run: |
           echo "storeFile=$ANDROID_KEYSTORE_FILE" >>  ${{env.PROPERTIES_PATH}}
           echo "keyAlias=$KEYSTORE_KEY_ALIAS" >>  ${{env.PROPERTIES_PATH}}
