@@ -32,22 +32,22 @@ platform :android do
     sh("flutter build apk --release")
   end
 
-  # desc "Deploy a new version to Firebase Distribution"
-  # # fastlane deploy_firebase_distribution version_name:"1.0.0" version_code:100
-  # lane :deploy_firebase_distribution do |options|
-  #   version_name = options[:version_name]
-  #   version_code = options[:version_code]
+  desc "Deploy a new version to Firebase Distribution"
+  # fastlane deploy_firebase_distribution version_name:"1.0.0" version_code:100
+  lane :deploy_firebase_distribution do |options|
+    version_name = options[:version_name]
+    version_code = options[:version_code]
 
-  #   sh "flutter build apk --build-name=#{version_name} --build-number=#{version_code} --release"
+    sh "flutter build apk --build-name=#{version_name} --build-number=#{version_code} --release"
 
-  #   firebase_app_distribution(
-  #       app: ENV["FIREBASE_APP_ID"],
-  #       firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
-  #       apk_path: "../build/app/outputs/flutter-apk/app-release.apk",
-  #       groups: "tester",
-  #       release_notes: "update for fastlane",
-  #   )
-  # end
+    firebase_app_distribution(
+        app: ENV["FIREBASE_APP_ID"],
+        firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
+        apk_path: "../build/app/outputs/flutter-apk/app-release.apk",
+        groups: "tester",
+        release_notes: "update for fastlane",
+    )
+  end
 
   desc "Deploy a new version to CH Play"
   # fastlane deploy_ch_play version_name:"1.0.0" version_code:100
