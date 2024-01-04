@@ -63,7 +63,7 @@ jobs:
           PLAY_PATH: "./GalleryApp/gallery_app/android/play_config.json"
         run : |
           echo "$PLAY_CONFIG_JSON" > play_config.json.b64
-          certutil -decode play_config.json.b64 ${{env.PLAY_PATH}}
+          echo play_config.json.b64 | base64 --decode  > ${{env.PLAY_PATH}}
 
       - name: Deploy app to Firebse Distribution 🚀
         working-directory: ./GalleryApp/gallery_app/android
