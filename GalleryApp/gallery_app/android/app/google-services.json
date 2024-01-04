@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "169290437899",
+    "project_id": "lance-flutter-gallery-f4037",
+    "storage_bucket": "lance-flutter-gallery-f4037.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:169290437899:android:434c97bb6aeb3c53b8be0e",
+        "android_client_info": {
+          "package_name": "com.lance.gallery_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAnWHAA_isskBZPHHfNFN05LfarBm2kJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
