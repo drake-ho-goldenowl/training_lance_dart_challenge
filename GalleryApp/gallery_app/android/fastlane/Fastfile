@@ -18,7 +18,6 @@ default_platform(:android)
 platform :android do
 
   before_all do
-    ENV["FIREBASE_CLI_TOKEN"] = "1//0epTTvuoKYT9uCgYIARAAGA4SNwF-L9IrdM2E5qE3GcWgay0QIy9cDabOip81M1GGUNkInUTzGby5KYsadEtLYjCQ1zX2X0YPu6A"
     ENV["FIREBASE_APP_ID"] = "1:169290437899:android:434c97bb6aeb3c53b8be0e"
   end
 
