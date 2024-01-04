@@ -44,6 +44,7 @@ platform :android do
         firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
         apk_path: "../build/app/outputs/flutter-apk/app-release.apk",
         groups: "tester",
+        debug: true,
         release_notes: "update for fastlane",
     )
   end
